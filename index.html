@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nossa Trajetória 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    #timer {
+      font-size: 1.5rem;
+      margin-top: 15px;
+    }
+
+    .heart {
+      font-size: 2rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      #timer {
+        font-size: 1.2rem;
+      }
+
+      .heart {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Nossa Trajetória 💖</h1>
+  <div id="timer"></div>
+  <div class="heart">Léo & Bia 💘</div>
+
+  <script>
+    const startDate = new Date("2020-04-14T00:00:00");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const years = Math.floor(days / 365.25);
+      const months = Math.floor((days % 365.25) / 30.44);
+      const remainingDays = Math.floor((days % 365.25) % 30.44);
+
+      document.getElementById("timer").innerText =
+        `Estamos juntos há ${years} ano(s), ${months} mês(es) e ${remainingDays} dia(s).`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000 * 60 * 60); // Atualiza a cada hora
+  </script>
+</body>
+</html>
